@@ -47,15 +47,23 @@ data class Board(var height: Int, var width: Int) {
         piece.positionX -= 1
     }
 
-//TODO: ver la posicion de la pieza y en funcion de eso ver si se puede mover o no (si hay un 1 al lado no se puede mover)
-   fun canMove(piece: Piece): Boolean {
+//Comprueba si se puede mover, comparando cada índice de la pieza con los índices adyacentes del tablero
+   fun getPiecePositionY(piece: Piece): Int {
+      var  myPositionY : Int
         for (i in board.indices) {
             for (j in 0..board[i].size) {
-
+                if(j in piece.positionX..piece.positionX+ piece.shape.lastIndex){
+                    myPositionY = j - piece.positionX
+                    if(board[i][myPositionY] == 1){
+                        return j+1
+                    }
+                }
             }
         }
-        return true
+        return 0
     }
+
+
 
     fun isLineComplete(): Boolean {
         //TODO: comprobar si hay una linea completa y eliminarla si la hay
@@ -73,7 +81,8 @@ fun getPiecePositionY(piece: Piece) {
 fun main() {
     val myBoard = Board(9, 12)
     myBoard.showBoard()
-    var piece = myBoard.getRandomPiece()
-    myBoard.placePiece(piece)
-    myBoard.showBoard()
+    var piece = Piece('O', listOf(listOf(1, 1), listOf(1, 1)), "red", 0, 5)
+    println(piece)
+    println(myBoard.getPiecePositionY(piece))
+
 }
