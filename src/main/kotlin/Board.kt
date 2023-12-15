@@ -48,11 +48,11 @@ data class Board(var height: Int, var width: Int) {
     }
 
 //Comprueba si se puede mover, comparando cada índice de la pieza con los índices adyacentes del tablero
-   fun canMove(piece: Piece): Int {
+   fun getPiecePositionY(piece: Piece): Int {
       var  myPositionY : Int
         for (i in board.indices) {
             for (j in 0..board[i].size) {
-                if(j in piece.positionX..piece.positionX+ piece.shape.size){
+                if(j in piece.positionX..piece.positionX+ piece.shape.lastIndex){
                     myPositionY = j - piece.positionX
                     if(board[i][myPositionY] == 1){
                         return j+1
@@ -81,8 +81,8 @@ fun getPiecePositionY(piece: Piece) {
 fun main() {
     val myBoard = Board(9, 12)
     myBoard.showBoard()
-    var piece = myBoard.getRandomPiece()
-    myBoard.canMove(piece)
-    myBoard.placePiece(piece)
+    var piece = Piece('O', listOf(listOf(1, 1), listOf(1, 1)), "red", 0, 5)
+    println(piece)
+    println(myBoard.getPiecePositionY(piece))
 
 }
