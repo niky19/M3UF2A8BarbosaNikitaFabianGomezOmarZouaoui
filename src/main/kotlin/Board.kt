@@ -42,28 +42,28 @@ data class Board(var height: Int, var width: Int) {
     }
 
     //Cuando nos llegue la pieza la posicion X e Y seran las correctas
-    /*fun placePiece(piece: Piece) {
+    fun placePiece(piece: Piece) {
     for (i in 0..<piece.shape.size) {
         for (j in 0..<piece.shape[i].size) {
             board[piece.positionY + i][piece.positionX + j] = piece.shape[i][j]
         }
     }
-}*/
-   fun placePiece(piece: Piece) {
-    for (i in 0 until piece.shape.size) {
-        for (j in 0 until piece.shape[i].size) {
-            if (piece.positionY + i in 0 until height && piece.positionX + j in 0 until width) {
-                if (board[piece.positionY + i][piece.positionX + j] == 0) {
-                    board[piece.positionY + i][piece.positionX + j] = piece.shape[i][j]
-                } else {
-                    piece.positionY -= 1
-                    placePiece(piece)
-                    return
-                }
-            }
-        }
-    }
 }
+//   fun placePiece(piece: Piece) {
+//    for (i in 0 until piece.shape.size) {
+//        for (j in 0 until piece.shape[i].size) {
+//            if (piece.positionY + i in 0 until height && piece.positionX + j in 0 until width) {
+//                if (board[piece.positionY + i][piece.positionX + j] == 0) {
+//                    board[piece.positionY + i][piece.positionX + j] = piece.shape[i][j]
+//                } else {
+//                    piece.positionY -= 1
+//                    placePiece(piece)
+//                    return
+//                }
+//            }
+//        }
+//    }
+//}
 
 
     fun moveRight(piece: Piece) {
@@ -75,28 +75,31 @@ data class Board(var height: Int, var width: Int) {
     }
 
     //Comprueba si se puede mover, comparando cada índice de la pieza con los índices adyacentes del tablero
-   /* fun getPiecePositionY(piece: Piece): Int {
+    fun getPiecePositionY(piece: Piece): Int {
         for (i in board.indices) {
             for (j in 0..<board[i].size) {
                 if (j in piece.positionX..piece.positionX + piece.shape[piece.shape.lastIndex].size) {
                     if (board[i][j] == 1) {
-                        return board.size - j - piece.shape[piece.shape.lastIndex].size
+                        if (i - piece.shape.size < 0) {
+                            return -1
+                        }
+                        return  i - piece.shape.size
                     }
                 }
             }
         }
-        return board.size - piece.shape[piece.shape.lastIndex].size
-    } */
-fun getPiecePositionY(piece: Piece): Int {
-    for (i in board.size - 1 downTo 0) {
-        for (j in piece.positionX until piece.positionX + piece.shape[0].size) {
-            if (j in 0 until width && board[i][j] == 1) {
-                return i - piece.shape.size + 2
-            }
-        }
+        return board.size - piece.shape.size
     }
-    return height - piece.shape.size
-}
+//fun getPiecePositionY(piece: Piece): Int {
+//    for (i in board.size - 1 downTo 0) {
+//        for (j in piece.positionX until piece.positionX + piece.shape[0].size) {
+//            if (j in 0 until width && board[i][j] == 1) {
+//                return i - piece.shape.size + 2
+//            }
+//        }
+//    }
+//    return height - piece.shape.size
+//}
 
 
     fun isLineComplete(): Boolean {
