@@ -1,38 +1,52 @@
-// en este archivo van las funciones relacionadas con la interfaz e interracción del usuario
-
-fun mostrarTablero(tablero: Array<Array<String>>) {
-    for (fila in tablero) {
-        for (casilla in fila) {
-            print("$casilla ")
-        }
-        println()
-    }
-}
+import java.util.*
 
 fun main() {
-    val anchoTablero = 10
-    val altoTablero = 20
-    val tablero = Array(altoTablero) { Array(anchoTablero) { "." } }
+    val anchoTablero = 12
+    val altoTablero = 9
+    val tablero = Board(altoTablero, anchoTablero)
 
+    println("¡Bienvenido a Tetris!")
 
-    val pieza = arrayOf(
-        arrayOf("X", "X"),
-        arrayOf("X", "X")
-    )
+    val scanner = Scanner(System.`in`)
 
+    var continuarJuego = true
 
-    colocarPiezaEnTablero(tablero, pieza, 2, 3)
+    do {
+        println("Menú:")
+        println("1. Mostrar Tablero")
+        println("2. Colocar Pieza Aleatoria")
+        println("3. Salir")
 
+        print("Ingresa tu elección: ")
+        val opcion = scanner.nextLine()
 
-    mostrarTablero(tablero)
+        when (opcion) {
+            "1" -> mostrarTablero(tablero)
+            "2" -> colocarPiezaAleatoria(tablero, scanner)
+            "3" -> {
+                println("Gràcies per jugar! Fins aviat!")
+                continuarJuego = false
+            }
+            else -> println("Opción no vàlida. Ingresa un número del 1 al 3")
+        }
+    } while (continuarJuego)
 }
 
-fun colocarPiezaEnTablero(tablero: Array<Array<String>>, pieza: Array<Array<String>>, x: Int, y: Int) {
-    for (i in pieza.indices) {
-        for (j in pieza[i].indices) {
-            if (pieza[i][j] == "X") {
-                tablero[y + i][x + j] = "X"
-            }
-        }
-    }
+fun mostrarTablero(tablero: Board) {
+    println("Tauler actual:")
+    tablero.showBoard()
+}
+
+fun colocarPiezaAleatoria(tablero: Board, scanner: Scanner) {
+    val pieza = tablero.getRandomPiece()
+
+    print("Ingresa la posició X per la peça aleatoria: ")
+    val x = scanner.nextLine().toInt()
+
+    print("Ingresa la posició Y per la peça aleatoria: ")
+    val y = scanner.nextLine().toInt()
+
+    println("colocant peça a la posició ($x, $y)")
+    tablero.placePiece(pieza)
+    tablero.showBoard()
 }
