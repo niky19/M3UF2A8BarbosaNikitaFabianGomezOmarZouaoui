@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8ce7c0a-9033-4f31-9091-c53a46e3afeb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a8ce7c0a-9033-4f31-9091-c53a46e3afeb" name="Changes" comment="move, getRandom, place">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Utils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Board.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Board.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Piece.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Piece.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/User_Interface.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/User_Interface.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -56,7 +60,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="BoardKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BoardKt" />
       <module name="M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui.main" />
@@ -64,8 +68,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <module name="M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Kotlin.BoardKt" />
       </list>
     </recent_temporary>
@@ -83,11 +95,36 @@
       <workItem from="1702563766477" duration="5922000" />
       <workItem from="1702571457117" duration="3582000" />
       <workItem from="1702634069547" duration="2895000" />
+      <workItem from="1702734588413" duration="8148000" />
     </task>
+    <task id="LOCAL-00001" summary="move, getRandom, place">
+      <option name="closed" value="true" />
+      <created>1702680721051</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702680721051</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="move, getRandom, place" />
+    <option name="LAST_COMMIT_MESSAGE" value="move, getRandom, place" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
