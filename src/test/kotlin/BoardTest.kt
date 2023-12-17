@@ -15,6 +15,7 @@ internal class BoardTest {
                 board.board[4 - i][j] = 1
             }
         }
+        //
 
         board.removeCompletedLines()
 

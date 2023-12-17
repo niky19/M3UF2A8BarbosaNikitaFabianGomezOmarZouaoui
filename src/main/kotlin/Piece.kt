@@ -1,3 +1,4 @@
+//
 /**
  *      Class representing a game piece.
  * @authors Nikita Barbosa, Omar Zouaoui, Fabián Gómez
