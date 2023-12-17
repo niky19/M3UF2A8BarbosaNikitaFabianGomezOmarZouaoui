@@ -24,20 +24,20 @@ class UI {
      * @param board The game board.
      */
     private fun initGame(board: Board) {
-        println("El juego ha empezado!")
         while (!board.isGameOver) {
             showMenu()
             // User actions are limited to the range of the available options [1, 3]
             val userNextAction = getIntInRange(1, 3, sc)
             when (userNextAction) {
                 1 -> board.showBoard()
-                2 -> placeNextPiece(board)
+                2 -> {placeNextPiece(board)
+                    board.showBoard()}
                 3 -> board.isGameOver = true
             }
             board.removeCompletedLines()
-            board.showBoard() // Although the user can choose to display the board at any time, it is also displayed after each action for better user experience
+
         }
-        println("Game over! ¡Gracias por jugar!")
+        println("Game over! Gracias por jugar.")
     }
 
     /**
@@ -54,9 +54,11 @@ class UI {
         """.trimIndent()
         )
         val width = checkInt(sc)
-        println("A continuación, introduce la altura del tablero:")
+        println("Introduce la altura del tablero:")
         val height = checkInt(sc)
-        println("Tu tablero ha sido configurado correctamente con las siguientes dimensiones: $height x $width. ¡Buena suerte!")
+        println("""
+            Empieza el juego, ¡buena suerte!
+        """.trimIndent())
         val board = Board(height, width)
         board.showBoard()
         return board
@@ -68,10 +70,10 @@ class UI {
     private fun showMenu() {
         println(
             """
-        Menú:
+        Opciones:
         1. Mostrar tablero
         2. Colocar siguiente pieza 
-        3. Salir
+        3. Salir del juego
         """.trimIndent()
         )
     }
@@ -87,7 +89,7 @@ class UI {
     private fun placeNextPiece(board: Board) {
         val piece = getRandomPiece()
         piece.showPiece()
-        println("Mueve la pieza horizontalmente introduciendo un número entre 0 y ${board.width - piece.getHorizontalSpace() - 1}")
+        println("Mueve la pieza horizontalmente introduciendo un número entre 0 y ${board.width - piece.getHorizontalSpace()}") // The user is informed of the range of possible positions!
         val maxPosition = board.width - piece.getHorizontalSpace()
         val newPositionX = getIntInRange(0, maxPosition, sc)
         piece.movePositionX(newPositionX)
