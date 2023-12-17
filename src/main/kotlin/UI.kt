@@ -30,14 +30,23 @@ class UI {
             val userNextAction = getIntInRange(1, 3, sc)
             when (userNextAction) {
                 1 -> board.showBoard()
-                2 -> {placeNextPiece(board)
-                    board.showBoard()}
+                2 -> {
+                    placeNextPiece(board)
+                    board.showBoard()
+                }
+
                 3 -> board.isGameOver = true
             }
             board.removeCompletedLines()
 
         }
-        println("Game over! Gracias por jugar.")
+        println(
+            """
+            ¡Fin del juego!
+            Puntuación final: ${board.score}
+            Gracias por jugar.
+        """.trimIndent()
+        )
     }
 
     /**
@@ -56,9 +65,11 @@ class UI {
         val width = checkInt(sc)
         println("Introduce la altura del tablero:")
         val height = checkInt(sc)
-        println("""
+        println(
+            """
             Empieza el juego, ¡buena suerte!
-        """.trimIndent())
+        """.trimIndent()
+        )
         val board = Board(height, width)
         board.showBoard()
         return board
@@ -87,12 +98,12 @@ class UI {
      * @param board The game board.
      */
     private fun placeNextPiece(board: Board) {
-        val piece = getRandomPiece()
-        piece.showPiece()
-        println("Mueve la pieza horizontalmente introduciendo un número entre 0 y ${board.width - piece.getHorizontalSpace()}") // The user is informed of the range of possible positions!
-        val maxPosition = board.width - piece.getHorizontalSpace()
-        val newPositionX = getIntInRange(0, maxPosition, sc)
-        piece.movePositionX(newPositionX)
-        board.placePiece(piece)
-    }
+    val piece = getRandomPiece()
+    piece.showPiece()
+    println("Mueve la pieza horizontalmente introduciendo un número entre 1 y ${board.width - piece.getHorizontalSpace() + 1}") // The user is informed of the range of possible positions!
+    val maxPosition = board.width - piece.getHorizontalSpace()
+    val newPositionX = getIntInRange(1, maxPosition + 1, sc) - 1 // Subtract 1 from user input
+    piece.movePositionX(newPositionX)
+    board.placePiece(piece)
+}
 }

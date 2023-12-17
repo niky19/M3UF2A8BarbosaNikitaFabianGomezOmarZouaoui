@@ -8,6 +8,7 @@
 
 
 data class Board(var height: Int, var width: Int) {
+    var score = 0
     var isGameOver = false
     var board: MutableList<MutableList<Int>> =
         MutableList(height) { MutableList(width) { 0 } } // 2D list representing the game board. Initialized with zeros.
@@ -95,6 +96,7 @@ data class Board(var height: Int, var width: Int) {
             if (isLineCompleted) {
                 board.removeAt(columnIndex)
                 board.add(0, MutableList(width) { 0 })
+                score++
             }
             isLineCompleted = true
         }
