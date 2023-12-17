@@ -13,7 +13,11 @@ repositories {
 }
 
 dependencies {
+    implementation("junit:junit:4.13.1")
     testImplementation(kotlin("test"))
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.9.10")
 }
@@ -32,3 +36,4 @@ kotlin {
 application {
     mainClass.set("MainKt")
 }
+
