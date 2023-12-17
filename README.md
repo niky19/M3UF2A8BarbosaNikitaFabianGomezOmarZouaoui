@@ -1,4 +1,4 @@
-# Tetris Game
+# M3 UF2 A8 - Tetris Game
 
 ## Overview
 
@@ -44,3 +44,5 @@ On June 6, 1984, Alekséi Pázhitnov, a Russian computer engineer, developed Tet
 ## Dependencies
 
 This project is implemented in Kotlin, and no external dependencies are required.
+`
+Made with <3 by niky19
