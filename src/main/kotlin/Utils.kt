@@ -12,16 +12,22 @@ import kotlin.random.Random
  * If the input is not an int, the user is asked to input a new value.
  * @param sc Scanner for user input.
  */
-fun checkInt(sc: Scanner): Int {
+// En Utils.kt
+
+fun checkInt(scanner: Scanner): Int {
     while (true) {
-        if (sc.hasNextInt()) {
-            return sc.nextInt()
-        } else {
-            println("Inválido: no es un número. Introduce un número:")
-            sc.next()
+        try {
+            return scanner.nextInt()
+        } catch (e: InputMismatchException) {
+            println("Entrada inválida. Introduce un número:")
+            scanner.nextLine() // Limpiar el buffer del scanner
+        } catch (e: NoSuchElementException) {
+            println("Entrada inválida. Introduce un número:")
+            scanner.nextLine() // Limpiar el buffer del scanner
         }
     }
 }
+
 
 /**
  *    Checks if the user input is an int within a given range.
