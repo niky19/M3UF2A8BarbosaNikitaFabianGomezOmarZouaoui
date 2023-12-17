@@ -1,29 +1,27 @@
-import kotlin.random.Random
-
-/*
-Tetris:
-The program will ask for the
-size of the game board and will randomly show a series of pieces that, in this one
-simplified version, they will not be able to rotate. We will move these pieces N positions to the right or a
-the left and we will drop them. The moment a piece touches the bottom or one of the
-pieces already placed, the piece will stop its fall. If you get that one line
-horizontal is completely filled, this line will disappear from the table and the pieces (or
-remains of pieces) that are on top fall until they touch the bottom or some other piece. The
-program ends when some piece reaches the upper limit of the table and therefore no more
-we can place none more.
+/**
+ *          Data class representing a game board.
+ * Has functions to show the board, place a piece, get the position of a piece, and remove completed lines.
+ * @authors Nikita Barbosa, Omar Zouaoui, Fabián Gómez
+ * @property height The height of the board.
+ * @property width The width of the board.
  */
 
-//Esta es la clase del tablero donde pondremos la logica del juego
+
 data class Board(var height: Int, var width: Int) {
     var isGameOver = false
+    var board: MutableList<MutableList<Int>> =
+        MutableList(height) { MutableList(width) { 0 } } // 2D list representing the game board. Initialized with zeros.
 
-    var board: MutableList<MutableList<Int>> = MutableList(height) { MutableList(width) { 0 } }
-
+    /**
+     *      Iterates over the board matrix.
+     * Prints the current state of the board to the console.
+     * Filled cells are represented by a square emoji, empty cells by a black square emoji.
+     */
     fun showBoard() {
         for (i in 0..<height) {
             for (j in 0..<width) {
-                val currengPosition = board[i][j]
-                if (currengPosition == 1) {
+                val currentPosition = board[i][j]
+                if (currentPosition == 1) {
                     print("\uD83D\uDFE5")
                 } else {
                     print("⬛")
@@ -34,27 +32,37 @@ data class Board(var height: Int, var width: Int) {
         println()
     }
 
-
-    //Cuando nos llegue la pieza la posicion X e Y seran las correctas
+    /**
+     *      Places a piece on the board.
+     * Iterates over the piece's shape matrix.
+     * The piece's Y position is determined by the `getPiecePositionY` function.
+     * If the piece cannot be placed (i.e., `getPiecePositionY` returns -1), the game is marked as over.
+     *
+     * @param piece The piece to be placed.
+     */
     fun placePiece(piece: Piece) {
         piece.positionY = getPiecePositionY(piece)
-        if (piece.positionY != -1){
-
-
-        for (i in 0..<piece.shape.size) {
-            for (j in 0..<piece.shape[i].size) {
-                board[piece.positionY + i][piece.positionX + j] = piece.shape[i][j]
+        if (piece.positionY != -1) {
+            for (i in 0..<piece.shape.size) {
+                for (j in 0..<piece.shape[i].size) {
+                    board[piece.positionY + i][piece.positionX + j] = piece.shape[i][j]
+                }
             }
-        }
         } else {
             isGameOver = true
         }
     }
 
-
-
-    //Comprueba si se puede mover, comparando cada índice de la pieza con los índices adyacentes del tablero
-    fun getPiecePositionY(piece: Piece): Int {
+    /**
+     *      Determines the Y position where a piece can be placed.
+     * The function checks each cell of the board from top to bottom, left to right.
+     * If it finds a filled cell that overlaps with the piece's X position, it returns the row above.
+     * If no filled cell is found, it returns the bottom row of the board.
+     *
+     * @param piece The piece to be placed.
+     * @return The Y position where the piece can be placed, or -1 if it cannot be placed.
+     */
+    private fun getPiecePositionY(piece: Piece): Int {
         for (i in board.indices) {
             for (j in 0..<board[i].size) {
                 if (j in piece.positionX..<piece.positionX + piece.shape[piece.shape.lastIndex].size) {
@@ -70,7 +78,11 @@ data class Board(var height: Int, var width: Int) {
         return board.size - piece.shape.size
     }
 
-
+    /**
+     *      Removes completed lines from the board.
+     * A line is considered completed if all its cells are filled.
+     * When a line is removed, a new empty line is added at the top of the board.
+     */
     fun removeCompletedLines() {
         var isLineCompleted = true
         for (columnIndex in 0..<board.size) {
@@ -86,7 +98,5 @@ data class Board(var height: Int, var width: Int) {
             }
             isLineCompleted = true
         }
-
     }
-
 }
