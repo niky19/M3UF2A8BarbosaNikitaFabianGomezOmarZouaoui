@@ -14,16 +14,13 @@ import kotlin.random.Random
  */
 // En Utils.kt
 
-fun checkInt(scanner: Scanner): Int {
+fun checkInt(sc: Scanner): Int {
     while (true) {
-        try {
-            return scanner.nextInt()
-        } catch (e: InputMismatchException) {
-            println("Entrada inválida. Introduce un número:")
-            scanner.nextLine() // Limpiar el buffer del scanner
-        } catch (e: NoSuchElementException) {
-            println("Entrada inválida. Introduce un número:")
-            scanner.nextLine() // Limpiar el buffer del scanner
+        if (sc.hasNextInt()) {
+            return sc.nextInt()
+        } else {
+            println("Inválido: no es un número. Introduce un número:")
+            sc.next()
         }
     }
 }
