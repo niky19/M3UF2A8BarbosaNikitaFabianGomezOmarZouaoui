@@ -10,3 +10,5 @@ plugins {
 }
 
 rootProject.name = "M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui"
+include("src:test")
+findProject(":src:test")?.name = "test"
