@@ -36,8 +36,8 @@ data class Board(var height: Int, var width: Int) {
 
     private fun findPieceByPosition(x: Int, y: Int): Piece? {
         for (piece in piecesOnBoard) {
-            if (y in piece.positionY until piece.positionY + piece.shape.size &&
-                x in piece.positionX until piece.positionX + piece.shape[0].size
+            if (y in piece.positionY..<piece.positionY + piece.shape.size &&
+                x in piece.positionX..<piece.positionX + piece.shape[0].size
             ) {
                 return piece
             }
@@ -57,7 +57,7 @@ data class Board(var height: Int, var width: Int) {
     fun placePiece(piece: Piece) {
         piece.positionY = getPiecePositionY(piece)
         if (piece.positionY != -1) {
-            for (i in 0 until piece.shape.size) {
+            for (i in 0..<piece.shape.size) {
                 for (j in 0 until piece.shape[i].size) {
                     board[piece.positionY + i][piece.positionX + j] = piece.shape[i][j]
                 }
