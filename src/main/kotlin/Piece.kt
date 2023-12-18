@@ -1,3 +1,4 @@
+//
 /**
  *      Class representing a game piece.
  * @authors Nikita Barbosa, Omar Zouaoui, Fabián Gómez
@@ -25,17 +26,15 @@ class Piece(val name: Char, val shape: List<List<Int>>, val color: String, var p
      * Filled cells are represented by the piece's color.
      */
     fun showPiece() {
-        for (i in 0..<shape.size) {
-            for (j in 0..<shape[i].size) {
+        for (i in 0 until shape.size) {
+            for (j in 0 until shape[i].size) {
                 if (shape[i][j] == 1) {
                     print(color)
                 }
             }
-
-            println() //Separates the rows so they don't appear together
+            println()
         }
-
-        println() //Separates the pieces so they don't appear together
+        println()
     }
 
     /**

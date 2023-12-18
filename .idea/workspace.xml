@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8ce7c0a-9033-4f31-9091-c53a46e3afeb" name="Changes" comment="prints bonitos y documentación">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+    <list default="true" id="a8ce7c0a-9033-4f31-9091-c53a46e3afeb" name="Changes" comment="carpeta de test">
       <change beforePath="$PROJECT_DIR$/src/test/BoardTest.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,11 +37,26 @@
       <list>
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "niky19"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="30d23b16-8790-4a3a-8283-db60a6741185" />
+        <option name="url" value="https://github.com/niky19/M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -60,29 +72,36 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "android.gradle.sync.needed": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "corretto-19",
-    "last_opened_file_path": "C:/Users/gabri/Desktop/niki/m03/M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui/src",
+    "last_opened_file_path": "C:/Users/hyeka/Desktop/niki/Cole/M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui/src/test",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15392457",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\gabri\Desktop\niki\m03\M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui\src\test" />
+      <recent name="C:\Users\hyeka\Desktop\niki\Cole\M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui\src\test" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.M3 [dokkaHtml]">
+  <component name="RunManager" selected="JUnit.All in M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui.test">
     <configuration name="M3 [dokkaHtml]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -105,6 +124,14 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="All in M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BoardKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BoardKt" />
       <module name="M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui.main" />
@@ -121,8 +148,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.M3 [dokkaHtml]" />
+        <item itemvalue="JUnit.All in M3UF2A8BarbosaNikitaFabianGomezOmarZouaoui.test" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.M3 [dokkaHtml]" />
         <item itemvalue="Kotlin.BoardKt" />
       </list>
     </recent_temporary>
@@ -144,6 +172,7 @@
       <workItem from="1702833857513" duration="654000" />
       <workItem from="1702835483725" duration="1111000" />
       <workItem from="1702836892188" duration="3943000" />
+      <workItem from="1702845483267" duration="2420000" />
     </task>
     <task id="LOCAL-00001" summary="move, getRandom, place">
       <option name="closed" value="true" />
@@ -169,7 +198,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702840863815</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="puntuacion y mejora de UX">
+      <option name="closed" value="true" />
+      <created>1702846067318</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702846067318</updated>
+    </task>
+    <task id="LOCAL-00005" summary="carpeta de test">
+      <option name="closed" value="true" />
+      <created>1702846694924</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702846694924</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +235,9 @@
     <MESSAGE value="move, getRandom, place" />
     <MESSAGE value="todo: docs, prints and tests" />
     <MESSAGE value="prints bonitos y documentación" />
-    <option name="LAST_COMMIT_MESSAGE" value="prints bonitos y documentación" />
+    <MESSAGE value="puntuacion y mejora de UX" />
+    <MESSAGE value="carpeta de test" />
+    <option name="LAST_COMMIT_MESSAGE" value="carpeta de test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

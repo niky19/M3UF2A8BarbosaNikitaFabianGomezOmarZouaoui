@@ -1,5 +1,5 @@
 import java.util.*
-
+//
 /**
  *      Class representing the user interface for the game.
  */
@@ -23,7 +23,7 @@ class UI {
      *
      * @param board The game board.
      */
-    private fun initGame(board: Board) {
+    fun initGame(board: Board) {
         while (!board.isGameOver) {
             showMenu()
             // User actions are limited to the range of the available options [1, 3]
@@ -55,7 +55,7 @@ class UI {
      *
      * @return The created game board.
      */
-    private fun createBoard(): Board {
+    fun createBoard(): Board {
         println(
             """
             ¡Bienvenido a Tetris!
@@ -78,7 +78,7 @@ class UI {
     /**
      *          Displays the game menu to the user.
      */
-    private fun showMenu() {
+    fun showMenu() {
         println(
             """
         Opciones:
@@ -97,7 +97,7 @@ class UI {
      *
      * @param board The game board.
      */
-    private fun placeNextPiece(board: Board) {
+    fun placeNextPiece(board: Board) {
     val piece = getRandomPiece()
     piece.showPiece()
     println("Mueve la pieza horizontalmente introduciendo un número entre 1 y ${board.width - piece.getHorizontalSpace() + 1}") // The user is informed of the range of possible positions!

@@ -19,11 +19,12 @@ data class Board(var height: Int, var width: Int) {
      * Filled cells are represented by a square emoji, empty cells by a black square emoji.
      */
     fun showBoard() {
-        for (i in 0..<height) {
-            for (j in 0..<width) {
+        for (i in 0 until height) {
+            for (j in 0 until width) {
                 val currentPosition = board[i][j]
                 if (currentPosition == 1) {
-                    print("\uD83D\uDFE5")
+                    val currentPiece = findPieceByPosition(j, i)
+                    print(currentPiece?.color ?: "⬛")
                 } else {
                     print("⬛")
                 }
@@ -32,6 +33,18 @@ data class Board(var height: Int, var width: Int) {
         }
         println()
     }
+
+    private fun findPieceByPosition(x: Int, y: Int): Piece? {
+        for (piece in piecesOnBoard) {
+            if (y in piece.positionY until piece.positionY + piece.shape.size &&
+                x in piece.positionX until piece.positionX + piece.shape[0].size
+            ) {
+                return piece
+            }
+        }
+        return null
+    }
+
 
     /**
      *      Places a piece on the board.
@@ -44,16 +57,17 @@ data class Board(var height: Int, var width: Int) {
     fun placePiece(piece: Piece) {
         piece.positionY = getPiecePositionY(piece)
         if (piece.positionY != -1) {
-            for (i in 0..<piece.shape.size) {
-                for (j in 0..<piece.shape[i].size) {
+            for (i in 0 until piece.shape.size) {
+                for (j in 0 until piece.shape[i].size) {
                     board[piece.positionY + i][piece.positionX + j] = piece.shape[i][j]
                 }
             }
+            piecesOnBoard.add(piece)
         } else {
             isGameOver = true
         }
     }
-
+    var piecesOnBoard: MutableList<Piece> = mutableListOf()
     /**
      *      Determines the Y position where a piece can be placed.
      * The function checks each cell of the board from top to bottom, left to right.
